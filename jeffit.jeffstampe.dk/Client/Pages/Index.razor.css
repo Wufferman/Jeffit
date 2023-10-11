@@ -1,0 +1,98 @@
+﻿.mainContent
+{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+}
+#loginDiv{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+#loginbutton {
+    background-color: grey;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#loginbutton:hover {
+    background-color: darkgrey;
+}
+#introText {
+    font-size: 2vw;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+}
+.commentTable, .outerThreadTable {
+    border: 1px solid #ccc;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .commentTable th, .outerThreadTable th {
+        background-color: #d4f4d7; /* Light Green */
+        color: black;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .commentTable td, .outerThreadTable td {
+        border: 1px solid #ccc; /* Light Grey */
+        padding: 8px;
+    }
+
+    .commentTable tr:nth-child(even), .outerThreadTable tr:nth-child(even) {
+        background-color: #f2f2f2; /* Light Grey */
+    }
+
+.threadRow tr:hover {
+    background-color: #c7eac7; /* Lighter Green */
+}
+
+tr {
+    text-align: center;
+}
+
+button {
+    background-color: Transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.threadRow {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .outerThreadTable thead {
+        display: none; /* Hide headers */
+    }
+
+    .outerThreadTable tr{
+        display: block;
+        margin-bottom: 0.6rem;
+    }
+
+    .outerThreadTable td{
+        display: block; /* Stack td's */
+        text-align: right;
+    }
+}
+
+
+

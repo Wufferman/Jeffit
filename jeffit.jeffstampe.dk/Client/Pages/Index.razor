@@ -1,0 +1,48 @@
+﻿@page "/"
+@using jeffit.jeffstampe.dk.Shared.Logic
+
+<PageTitle>Jeffit</PageTitle>
+<div id="loginDiv">
+    <input type="text" placeholder="Write your username" value="@username" @oninput="UpdateUsername" />
+    <button @onclick="(() => Login())" id="loginbutton">Login</button>
+</div>
+<div class="main">
+    <p id="introText">Welcome to Jeffit! The front page of the internet!</p>
+    <div class="mainContent">
+    @if(threads == null)
+    {
+        <p>Loading, please wait...</p>
+    }
+    else
+    {
+        <table class="outerThreadTable">
+            <thead>
+                <tr>
+                    <th>Creator</th>
+                    <th>Creation Time</th>
+                    <th>Thread Name</th>
+                    <th>Comment Count</th>
+                    <th>Likes</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="innerTableHead">
+                @foreach(ThreadPost thread in threads)
+                {
+                    <ThreadElement LoginUser="@loginUser" Thread="thread"></ThreadElement>
+                }
+            </tbody>
+            <tbody>
+                @if(loginUser == null)
+                {
+                    <p>Sign in to post.</p>
+                }
+                else
+                {
+                    <CreateThreadElement LoginUser="@loginUser"></CreateThreadElement>
+                }
+            </tbody>
+        </table>
+    }
+    </div>
+</div>

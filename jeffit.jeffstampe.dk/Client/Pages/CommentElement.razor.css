@@ -1,0 +1,33 @@
+﻿.commentTable, .outerThreadTable {
+    border: 1px solid #ccc;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    cursor: default;
+}
+
+    .commentTable th, .outerThreadTable th {
+        background-color: #d4f4d7; /* Light Green */
+        color: black;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .commentTable td, .outerThreadTable td {
+        border: 1px solid #ccc; /* Light Grey */
+        padding: 8px;
+    }
+
+    .commentTable tr:nth-child(even), .outerThreadTable tr:nth-child(even) {
+        background-color: #f2f2f2; /* Light Grey */
+    }
+
+    .commentTable tr:hover, .outerThreadTable tr:hover {
+        background-color: #c7eac7; /* Lighter Green */
+    }
+
+button {
+    background-color: Transparent;
+    border: none;
+    cursor: pointer;
+}

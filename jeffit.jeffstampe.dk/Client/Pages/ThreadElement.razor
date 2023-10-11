@@ -1,0 +1,45 @@
+﻿@using jeffit.jeffstampe.dk.Shared.Logic;
+
+
+        <tr @onclick="ChangeCommentVisibilityBool" class="threadRow">
+            <td title="Creator">@Thread.Creator.Name</td>
+            <td title="Creation Time">@Thread.CreationTime</td>
+            <td title="Thread Name">@Thread.Name</td>
+            <td title="# Comments">@Thread.Comments.Count()</td>
+            <td title="# Likes">@Thread.Likes</td>
+            <td>
+                <button @onclick="@AddLike">👍</button>
+                <button @onclick="@RemoveLike">👎</button>
+            </td>
+        </tr>
+        <tr hidden="@CommentVisibilityBool" class="commentBox">
+            <td colspan="6">
+                <table class="commentTable">
+                    <thead>
+                        <tr>
+                            <th>Creator</th>
+                            <th>Creation Time</th>
+                            <th>Comment</th>
+                            <th>Likes</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Comment comment in Thread.Comments)
+                        {
+                            <CommentElement Comment="comment"></CommentElement>
+                        }
+                    </tbody>
+                    <tbody>
+                        @if (LoginUser == null)
+                        {
+                            <p>Sign in to post.</p>
+                        }
+                        else
+                        {
+                            <CreateCommentElement LoginUser="@LoginUser" Thread="Thread"></CreateCommentElement>
+                        }
+                    </tbody>
+                </table>
+            </td>
+        </tr>
