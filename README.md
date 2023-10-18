@@ -2,5 +2,5 @@
 Online version:
 https://jeffit.jeffstampe.dk
 
-Anden Reddit-Klon:
+Orluff Projekt:
 https://github.com/Orluff/Mini-projekt
