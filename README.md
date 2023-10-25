@@ -1,5 +1,5 @@
 # Jeffit 3.Semester Project
-Online version:
+Online version (MySQL Version):
 https://jeffit.jeffstampe.dk
 
 Orluff Projekt:
