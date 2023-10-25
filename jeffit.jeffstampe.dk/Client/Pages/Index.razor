@@ -2,27 +2,51 @@
 @using jeffit.jeffstampe.dk.Shared.Logic
 
 <PageTitle>Jeffit</PageTitle>
-<div id="loginDiv">
-    <input type="text" placeholder="Write your username" value="@username" @oninput="UpdateUsername" />
-    <button @onclick="(() => Login())" id="loginbutton">Login</button>
+<div id="configurationDiv">
+    <div id="loginDiv">
+        <input type="text" placeholder="Write your username" value="@username" @oninput="UpdateUsername" />
+        <button @onclick="(() => Login())" id="loginbutton">Login</button>
+    </div>
+    <div id="subjeffitDiv">
+        <input type="text" placeholder="all" value="@subjeffit" @oninput="UpdateSubJeffit" />
+        <button @onclick="(() => SubJeffitInput())" id="loginbutton">Change SubJeffit</button>
+    </div>
 </div>
 <div class="main">
-    <p id="introText">Welcome to Jeffit! The front page of the internet!</p>
+    <p id="introText">Welcome to Jeffit! The front page of the internet!<br /> <span id="savedSubjeffit">@savedSubJeffit</span> </p>
+    @if (locked)
+    {
+        <p>Jeffit has been locked for edits!</p>
+    }
     <div class="mainContent">
     @if(threads == null)
     {
-        <p>Loading, please wait...</p>
-    }
-    else
-    {
-        <table class="outerThreadTable">
-            <thead>
-                <tr>
-                    <th>Creator</th>
-                    <th>Creation Time</th>
-                    <th>Thread Name</th>
-                    <th>Comment Count</th>
-                    <th>Likes</th>
+            <p>Loading, please wait...</p>
+        }
+        else
+        {
+            <table class="outerThreadTable">
+                <thead>
+                    <tr>
+                        <th @onclick="@(() => ChangePropInfo("Creator"))">
+                            @GetArrow("Creator")
+                            Creator</th>
+                    <th @onclick="@(() => ChangePropInfo("CreationTime"))">
+                            @GetArrow("CreationTime")
+                            Creation Time
+                        </th>
+                    <th @onclick="@(() => ChangePropInfo("Name"))">
+                            @GetArrow("Name")
+                            (SubJeffit) Thread Name
+                        </th>
+                    <th @onclick="@(() => ChangePropInfo("CommentCount"))">
+                            @GetArrow("CommentCount")
+                            Comment Count
+                        </th>
+                    <th @onclick="@(() => ChangePropInfo("Likes"))">
+                            @GetArrow("Likes")
+                            Likes
+                        </th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -39,7 +63,7 @@
                 }
                 else
                 {
-                    <CreateThreadElement LoginUser="@loginUser"></CreateThreadElement>
+                    <CreateThreadElement LoginUser="@loginUser" SubJeffit="@subjeffit"></CreateThreadElement>
                 }
             </tbody>
         </table>

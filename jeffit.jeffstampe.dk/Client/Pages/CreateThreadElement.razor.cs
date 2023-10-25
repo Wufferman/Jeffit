@@ -11,6 +11,9 @@ namespace jeffit.jeffstampe.dk.Client.Pages
         [Parameter]
         public User LoginUser { get; set; }
 
+        [Parameter]
+        public string SubJeffit { get; set; }
+
 
         ThreadPost newThread;
 
@@ -27,6 +30,7 @@ namespace jeffit.jeffstampe.dk.Client.Pages
         {
             newThread.Creator = LoginUser;
             newThread.CreationTime = DateTime.Now;
+            newThread.SubJeffit = SubJeffit;
             if (newThread.Name != "" && newThread.Name != string.Empty)
             {
                 await APICalls.AddThread(newThread);

@@ -12,7 +12,7 @@ namespace jeffit.jeffstampe.dk.Client.cs
         private static string jeffstampelocalhostUlr = "https://localhost:7146/";
         private static string jeffitjeffstampeUrl = "https://jeddit.jeffstampe.dk/";
         private static string jeffstampeUrl = "https://jeffstampe.dk/";
-        public static string baseUrl = jeffstampeUrl    ;
+        public static string baseUrl = localhostUrl;
         private static HttpClient client = new HttpClient();
 
         public static async Task<List<ThreadPost>> GetThreadPosts()
@@ -24,13 +24,10 @@ namespace jeffit.jeffstampe.dk.Client.cs
         {
             await client.PostAsJsonAsync(baseUrl + $"api/thread/{threadid}/comment", comment);
         }
-
         public static async Task AddThread(ThreadPost thread)
         {
             await client.PostAsJsonAsync(baseUrl + $"api/thread", thread);
-
         }
-
         public static async Task AddLike(ThreadPost thread)
         {
             await client.PostAsJsonAsync(baseUrl + "api/like/thread/add", thread);

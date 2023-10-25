@@ -1,0 +1,15 @@
+*.pubxml
+[Pp]ublish/
+[Oo]bj/
+[Bb]in/
+.vs
+
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+*.pdb
+*.dll
+*.exe

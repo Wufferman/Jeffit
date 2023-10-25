@@ -11,6 +11,7 @@ namespace jeffit.jeffstampe.dk.Shared.Logic
         public int Id { get; set; }
         public string Name { get; set; }
         public int Likes { get; set; }
+        public string SubJeffit { get; set; }
         public User Creator { get; set; }
         public DateTime CreationTime { get; set; }
 

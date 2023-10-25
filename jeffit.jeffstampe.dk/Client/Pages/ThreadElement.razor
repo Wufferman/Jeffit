@@ -4,7 +4,7 @@
         <tr @onclick="ChangeCommentVisibilityBool" class="threadRow">
             <td title="Creator">@Thread.Creator.Name</td>
             <td title="Creation Time">@Thread.CreationTime</td>
-            <td title="Thread Name">@Thread.Name</td>
+            <td title="Thread Name">(@Thread.SubJeffit) @Thread.Name</td>
             <td title="# Comments">@Thread.Comments.Count()</td>
             <td title="# Likes">@Thread.Likes</td>
             <td>
